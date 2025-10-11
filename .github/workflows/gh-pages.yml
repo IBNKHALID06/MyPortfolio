@@ -47,6 +47,9 @@ jobs:
       - name: Add SPA fallback
         run: |
           cp dist/spa/index.html dist/spa/404.html
+          # Ensure built index references the correct base path (safety rewrite)
+          sed -i 's|src="/assets/|src="/MyPortfolio/assets/|g' dist/spa/index.html dist/spa/404.html || true
+          sed -i 's|href="/assets/|href="/MyPortfolio/assets/|g' dist/spa/index.html dist/spa/404.html || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
