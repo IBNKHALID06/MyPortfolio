@@ -5,8 +5,10 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode: _mode }) => {
-  // For custom domain deployment, base should be root
-  const base = '/';
+  // For GitHub Pages root deployment, use base = '/'.
+  // If PAGES_BUILD env is set, output to root and set base to '/'.
+  const isPagesBuild = process.env.PAGES_BUILD === 'true';
+  const base = isPagesBuild ? '/' : (process.env.VITE_BASE_PATH || '/');
   return {
   server: {
     host: "::",

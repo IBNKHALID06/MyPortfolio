@@ -5,8 +5,9 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode: _mode }) => {
-  // For custom domain deployment, base should be root
-  const base = '/';
+  // Allow overriding base path for GitHub Pages deployments.
+  // Use VITE_BASE_PATH env var or default to '/'.
+  const base = process.env.VITE_BASE_PATH || "/";
   return {
   server: {
     host: "::",

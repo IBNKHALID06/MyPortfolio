@@ -1,6 +1,6 @@
 {
   "name": "fusion-starter",
-  "homepage": "https://khalidibnfkih.dev",
+  "homepage": "https://IBNKHALID06.github.io/MyPortfolio",
   "private": true,
   "type": "module",
   "pkg": {
@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build:client && npm run build:server",
-  "build:client": "vite build && node scripts/post-pages.cjs",
+  "build:client": "vite build",
   "predeploy": "pnpm build:client",
   "deploy": "gh-pages -d dist/spa",
     "build:pages": "cross-env PAGES_BUILD=true vite build && node scripts/post-pages.cjs",

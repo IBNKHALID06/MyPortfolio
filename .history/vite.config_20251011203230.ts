@@ -5,8 +5,13 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode: _mode }) => {
-  // For custom domain deployment, base should be root
-  const base = '/';
+  // Determine base path for assets. Priority:
+  // 1. Explicit env override VITE_BASE_PATH
+  // 2. If running in GitHub Actions for this repo, use '/MyPortfolio/' (GH Pages subfolder)
+  // 3. Fallback to '/'
+  const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+  const inferredBase = process.env.GITHUB_ACTIONS && repoName === 'MyPortfolio' ? '/MyPortfolio/' : '/';
+  const base = process.env.VITE_BASE_PATH || inferredBase;
   return {
   server: {
     host: "::",

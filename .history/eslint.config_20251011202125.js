@@ -34,9 +34,6 @@ export default [
       'react/prop-types': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       'import/order': ['warn', { 'newlines-between': 'always', groups: ['builtin','external','internal','parent','sibling','index'], alphabetize: { order: 'asc', caseInsensitive: true } }],
-      // Relax defaults to avoid initial noise; tighten later.
-      'no-unused-vars': 'off',
-      'no-undef': 'off'
     },
     settings: {
       react: { version: 'detect' },
@@ -50,7 +47,6 @@ export default [
       '*.config.cjs',
       '*.d.ts',
       'pnpm-lock.yaml',
-      '.history',
       '.eslintrc.cjs',
       '.eslintignore'
     ],

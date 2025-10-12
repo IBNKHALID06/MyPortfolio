@@ -5,8 +5,8 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode: _mode }) => {
-  // For custom domain deployment, base should be root
-  const base = '/';
+  // For GitHub Pages deployment, set base to repo name
+  const base = '/MyPortfolio/';
   return {
   server: {
     host: "::",
