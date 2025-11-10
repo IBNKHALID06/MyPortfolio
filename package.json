@@ -14,9 +14,9 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build:client && npm run build:server",
-  "build:client": "vite build && node scripts/post-pages.cjs",
-  "predeploy": "pnpm build:client",
-  "deploy": "gh-pages -d dist/spa",
+    "build:client": "vite build && node scripts/post-pages.cjs",
+    "predeploy": "pnpm build:client",
+    "deploy": "gh-pages -d dist/spa",
     "build:pages": "cross-env PAGES_BUILD=true vite build && node scripts/post-pages.cjs",
     "build:server": "vite build --config vite.config.server.ts",
     "start": "node dist/server/node-build.mjs",
@@ -114,4 +114,5 @@
     "vaul": "^1.1.2",
     "vite": "^7.1.2",
     "vitest": "^3.2.4"
-  }}
+  }
+}
