@@ -1,6 +1,7 @@
 import GlassCard from "@/components/site/GlassCard";
 import SectionTitle from "@/components/site/SectionTitle";
 import Hero from "@/components/site/Hero";
+import Slideshow from "@/components/site/Slideshow";
 import { Mail, Github, Linkedin, Youtube, Book, Users, Laptop, LineChart, Calendar, Layers } from "lucide-react";
 
 export default function Index() {
@@ -135,6 +136,24 @@ export default function Index() {
               </li>
             </ol>
           </div>
+        </GlassCard>
+      </section>
+
+      {/* Gallery Slideshow (Aquanour screenshots) */}
+      <section id="gallery" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Project Gallery</SectionTitle>
+        <GlassCard className="p-4">
+          <Slideshow
+            slides={[
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F6e749d0c3e2744bcbf193891b7f9b644?format=webp&width=800", alt: "Aquanour live map" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fbbc33fd6a13f4bf9891b7547060585e7?format=webp&width=800", alt: "Aquanour reports table" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fcab394107a034e19a51a0c629a020650?format=webp&width=800", alt: "Aquanour analytics dashboard" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F67bcfb43f30a425387b18079c5e94402?format=webp&width=800", alt: "Aquanour contact page" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F44b925dfb0654adfac9537c0bd20827c?format=webp&width=800", alt: "Aquanour mobile preview" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fe1fdce0ac52d4f4387ac3b330ff37f5a?format=webp&width=800", alt: "Aquanour SMS webhook" },
+              { src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F32ce41fc3f494b03a1c9ee9d3788c3b2?format=webp&width=800", alt: "Aquanour home page" },
+            ]}
+          />
         </GlassCard>
       </section>
 
