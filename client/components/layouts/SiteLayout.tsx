@@ -47,6 +47,22 @@ export default function SiteLayout({ children }: PropsWithChildren) {
                 <span className={cn("text-lg font-semibold text-glow-purple")}>
                   Khalid IBNFKIH
                 </span>
+                <svg
+                  aria-label="Moroccan star"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  className="text-violet-500"
+                >
+                  <polyline
+                    points="12,3 17.29,19.28 3.44,9.22 20.56,9.22 6.71,19.28 12,3"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </a>
               <nav className="hidden md:flex items-center gap-4">
                 {navItems.map((n) => (
