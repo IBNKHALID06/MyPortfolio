@@ -24,6 +24,8 @@ export default function SiteLayout({ children }: PropsWithChildren) {
   const navItems = [
     { href: "/#about", label: "About" },
     { href: "/#projects", label: "Projects" },
+    { href: "/#rural-girls", label: "Rural Girls" },
+    { href: "/#progress", label: "Progress" },
     { href: "/#skills", label: "Skills" },
     { href: "/#achievements", label: "Achievements" },
     { href: "/#education", label: "Education" },
