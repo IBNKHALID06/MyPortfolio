@@ -1,7 +1,7 @@
 import GlassCard from "@/components/site/GlassCard";
 import SectionTitle from "@/components/site/SectionTitle";
 import Hero from "@/components/site/Hero";
-import { Mail, Github, Linkedin, Youtube } from "lucide-react";
+import { Mail, Github, Linkedin, Youtube, Book, Users, Laptop, LineChart, Calendar, Layers } from "lucide-react";
 
 export default function Index() {
   return (
@@ -60,6 +60,82 @@ export default function Index() {
             <p className="mt-2">Context: Part of an entrepreneurship course milestone.</p>
           </GlassCard>
         </div>
+      </section>
+
+      {/* Rural Girls Education (Problem + Solution) */}
+      <section id="rural-girls" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Empowering Rural Girls in Morocco</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <GlassCard className="p-6 text-foreground/90">
+            <p className="leading-relaxed">
+              Many girls in rural Morocco face challenges accessing quality education due to distance, limited resources, and cultural barriers. The <span className="text-primary font-semibold">Rural Girl Plan</span> provides digital learning tools, mentorship, and educational resources to help girls continue their studies and thrive.
+              <span className="block mt-3 text-sm text-foreground/70">Implemented with a focus on local communities in Morocco.</span>
+            </p>
+            <ul className="mt-4 space-y-2 list-disc list-inside">
+              <li>Offline-first digital lessons available on shared devices</li>
+              <li>Community mentorship circles led by university students</li>
+              <li>Scholarship and learning material micro-funds</li>
+            </ul>
+          </GlassCard>
+          <GlassCard className="p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <Laptop className="mx-auto size-5 text-primary" />
+                <p className="mt-2 text-sm font-medium">Digital Learning</p>
+              </div>
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <Users className="mx-auto size-5 text-primary" />
+                <p className="mt-2 text-sm font-medium">Mentorship</p>
+              </div>
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <Book className="mx-auto size-5 text-primary" />
+                <p className="mt-2 text-sm font-medium">Resources</p>
+              </div>
+            </div>
+            <div className="mt-4 text-xs text-foreground/70">Barriers → Solutions: distance (community hubs), resources (shared devices), guidance (mentorship).</div>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Progress / Prototype / Timeline */}
+      <section id="progress" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>From Idea to Reality</SectionTitle>
+        <GlassCard className="p-6">
+          <p className="text-foreground/90">All my projects follow an iterative process to stay effective and scalable:</p>
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-secondary">
+              <Layers className="size-5 text-primary" />
+              <p className="mt-2 text-sm font-semibold">Concept → Prototype</p>
+              <p className="text-sm text-foreground/80 mt-1">Sketches, wireframes, and early builds.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-secondary">
+              <LineChart className="size-5 text-primary" />
+              <p className="mt-2 text-sm font-semibold">Feedback → Refinement</p>
+              <p className="text-sm text-foreground/80 mt-1">User testing, iteration, and polish.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-secondary">
+              <Calendar className="size-5 text-primary" />
+              <p className="mt-2 text-sm font-semibold">Evaluation → Learnings</p>
+              <p className="text-sm text-foreground/80 mt-1">Measure outcomes and plan next steps.</p>
+            </div>
+          </div>
+          <div className="mt-6">
+            <ol className="relative border-s border-foreground/15 ms-3">
+              <li className="mb-6 ms-4">
+                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
+                <p className="text-sm"><span className="font-semibold">Consoly</span> — MVP validated with early users.</p>
+              </li>
+              <li className="mb-6 ms-4">
+                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
+                <p className="text-sm"><span className="font-semibold">Aquanour</span> — Pilot with live map and reporting.</p>
+              </li>
+              <li className="ms-4">
+                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
+                <p className="text-sm"><span className="font-semibold">Rural Girl Plan</span> — Beta focused on rural communities in Morocco.</p>
+              </li>
+            </ol>
+          </div>
+        </GlassCard>
       </section>
 
       <section id="skills" className="mx-auto max-w-6xl px-4 mt-16">
