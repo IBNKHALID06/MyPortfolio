@@ -6,27 +6,31 @@ import { createServer } from "./server";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode: _mode }) => {
   // For custom domain deployment, base should be root
-  const base = '/';
+  const base = "/";
   return {
-  server: {
-    host: "::",
-    port: 8080,
-    fs: {
-      allow: [path.resolve(__dirname, "."), path.resolve(__dirname, "./client"), path.resolve(__dirname, "./shared")],
-      deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
+    server: {
+      host: "::",
+      port: 8080,
+      fs: {
+        allow: [
+          path.resolve(__dirname, "."),
+          path.resolve(__dirname, "./client"),
+          path.resolve(__dirname, "./shared"),
+        ],
+        deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
+      },
     },
-  },
-  build: {
-    outDir: "dist/spa",
-  },
-  base,
-  plugins: [react(), expressPlugin()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
+    build: {
+      outDir: "dist/spa",
     },
-  },
+    base,
+    plugins: [react(), expressPlugin()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./client"),
+        "@shared": path.resolve(__dirname, "./shared"),
+      },
+    },
   };
 });
 
