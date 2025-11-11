@@ -1,7 +1,3 @@
-import GlassCard from "@/components/site/GlassCard";
-import SectionTitle from "@/components/site/SectionTitle";
-import Hero from "@/components/site/Hero";
-import Slideshow from "@/components/site/Slideshow";
 import {
   Mail,
   Github,
@@ -14,6 +10,11 @@ import {
   Calendar,
   Layers,
 } from "lucide-react";
+
+import GlassCard from "@/components/site/GlassCard";
+import Hero from "@/components/site/Hero";
+import SectionTitle from "@/components/site/SectionTitle";
+import Slideshow from "@/components/site/Slideshow";
 
 export default function Index() {
   return (

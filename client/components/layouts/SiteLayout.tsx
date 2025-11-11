@@ -1,9 +1,10 @@
+import { Sun, Moon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import { useTheme } from "@/components/ui/theme";
-import { Sun, Moon } from "lucide-react";
+
 import BackgroundFluid from "@/components/site/BackgroundFluid";
+import { useTheme } from "@/components/ui/theme";
+import { cn } from "@/lib/utils";
 
 function DarkModeToggle() {
   const { theme, toggle } = useTheme();
