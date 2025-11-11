@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 
-// Metaballs ("lava lamp") background with mouse attraction
+// Metaballs ("lava lamp") background - non-interactive, constant speed
 export default function BackgroundFluid() {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const raf = useRef<number | null>(null);
-  const mouse = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
     const canvas = ref.current!;
@@ -31,7 +30,6 @@ export default function BackgroundFluid() {
       precision highp float;
       uniform vec2 u_res;
       uniform float u_time;
-      uniform vec2 u_mouse;
 
       float metaball(vec2 uv, vec2 c, float r){
         float d = length(uv - c);
@@ -49,18 +47,18 @@ export default function BackgroundFluid() {
         float aspect = u_res.x / u_res.y;
         vec2 uvA = vec2(uv.x*aspect, uv.y);
 
-        float t = u_time * 0.5;
-        vec2 m = u_mouse; // 0..1
+        float t = u_time * 0.5; // speed
 
         float f = 0.0;
-        // 6 moving balls
-        for (int i=0;i<6;i++){
+        // 12 moving balls
+        for (int i=0;i<12;i++){
           float fi = float(i);
-          float a = t*0.6 + fi*1.0472; // ~60deg offset
-          float r = 0.18 + 0.04*sin(t*0.9 + fi);
-          vec2 c = vec2(0.5 + 0.35*cos(a + fi*0.37), 0.5 + 0.30*sin(a*1.2 + fi*0.21));
-          // mouse attraction
-          c += (m - 0.5) * 0.15;
+          float a = t*0.6 + fi*0.5235987756; // ~30deg offset
+          float r = 0.14 + 0.05*sin(t*0.9 + fi*0.7);
+          vec2 c = vec2(
+            0.5 + 0.40*cos(a + fi*0.37),
+            0.5 + 0.33*sin(a*1.17 + fi*0.21)
+          );
           vec2 cA = vec2(c.x*aspect, c.y);
           f += metaball(uvA, cA, r);
         }
@@ -110,18 +108,6 @@ export default function BackgroundFluid() {
 
     const uRes = gl.getUniformLocation(prog, "u_res");
     const uTime = gl.getUniformLocation(prog, "u_time");
-    const uMouse = gl.getUniformLocation(prog, "u_mouse");
-
-    const onMove = (x: number, y: number) => {
-      mouse.current.x = x / window.innerWidth;
-      mouse.current.y = 1.0 - y / window.innerHeight;
-    };
-    const onMouse = (e: MouseEvent) => onMove(e.clientX, e.clientY);
-    const onTouch = (e: TouchEvent) => {
-      if (e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
-    };
-    window.addEventListener("mousemove", onMouse);
-    window.addEventListener("touchmove", onTouch, { passive: true });
 
     let start = performance.now();
     const tick = () => {
@@ -129,7 +115,6 @@ export default function BackgroundFluid() {
       const t = (now - start) / 1000;
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, t);
-      gl.uniform2f(uMouse, mouse.current.x, mouse.current.y);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       raf.current = requestAnimationFrame(tick);
     };
@@ -140,8 +125,6 @@ export default function BackgroundFluid() {
     return () => {
       if (raf.current) cancelAnimationFrame(raf.current);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMouse);
-      window.removeEventListener("touchmove", onTouch);
     };
   }, []);
 
