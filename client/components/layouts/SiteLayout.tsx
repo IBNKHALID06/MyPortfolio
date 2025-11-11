@@ -1,157 +1,73 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+
+import BackgroundFluid from "@/components/site/BackgroundFluid";
+import { useTheme } from "@/components/ui/theme";
 import { cn } from "@/lib/utils";
-import { Menu, Moon, Sun, X } from "lucide-react";
-import LavaBackground from "@/components/site/LavaBackground";
-import MusicPlayer from "@/components/site/MusicPlayer";
 
-export default function SiteLayout({ children }: PropsWithChildren) {
-  const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState<string | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const initial =
-      stored ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light");
-    setTheme(initial);
-  }, []);
-
-  useEffect(() => {
-    if (!theme) return;
-    const root = document.documentElement;
-    if (theme === "dark") root.classList.add("dark");
-    else root.classList.remove("dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const navItems = [
-    { href: "/#about", label: "About" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#progress", label: "Progress" },
-    { href: "/#skills", label: "Skills" },
-    { href: "/#achievements", label: "Achievements" },
-    { href: "/#education", label: "Education" },
-    { href: "/#contact", label: "Contact" },
-  ];
-
+function DarkModeToggle() {
+  const { theme, toggle } = useTheme();
+  const Icon = theme === "dark" ? Sun : Moon;
   return (
-    <div className="min-h-screen flex flex-col">
-      <LavaBackground />
-      <header className="sticky top-0 z-50 w-full">
-        <div className="mx-auto max-w-6xl px-4 py-3">
-          <div className="card-glass px-4 py-2">
-            <div className="flex items-center justify-between">
-              <a href="/#about" className="inline-flex items-center gap-3">
-                <span className={cn("text-lg font-semibold text-glow-purple")}>
-                  Khalid IBNFKIH
-                </span>
-                <svg
-                  aria-label="Moroccan star"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  className="text-violet-500"
-                >
-                  <polyline
-                    points="12,3 17.29,19.28 3.44,9.22 20.56,9.22 6.71,19.28 12,3"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </a>
-              <nav className="hidden md:flex items-center gap-4">
-                {navItems.map((n) => (
-                  <a
-                    key={n.href}
-                    href={n.href}
-                    className="text-sm text-foreground/90 hover:text-primary transition-colors"
-                  >
-                    {n.label}
-                  </a>
-                ))}
-                <a
-                  href="/#contact"
-                  className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-4 py-2 font-semibold hover:scale-[1.03] transition-transform"
-                >
-                  Get in touch
-                </a>
-                <button
-                  aria-label="Toggle theme"
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="ml-1 inline-flex items-center justify-center rounded-lg border border-primary/30 px-3 py-2 hover:bg-primary/10"
-                >
-                  {theme === "dark" ? (
-                    <Sun className="size-4" />
-                  ) : (
-                    <Moon className="size-4" />
-                  )}
-                </button>
-              </nav>
-              <button
-                className="md:hidden text-foreground"
-                onClick={() => setOpen((v) => !v)}
-                aria-label="Toggle menu"
-              >
-                {open ? <X className="size-6" /> : <Menu className="size-6" />}
-              </button>
-            </div>
-            {open && (
-              <div className="mt-3 grid gap-2 md:hidden">
-                {navItems.map((n) => (
-                  <a
-                    key={n.href}
-                    href={n.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2 text-foreground hover:bg-primary/10 hover:text-primary"
-                  >
-                    {n.label}
-                  </a>
-                ))}
-                <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="block rounded-lg px-3 py-2 text-foreground hover:bg-primary/10 hover:text-primary text-left"
-                >
-                  Toggle theme
-                </button>
-              </div>
-            )}
-          </div>
+    <button
+      aria-label="Toggle dark mode"
+      onClick={toggle}
+      className="inline-flex items-center justify-center rounded-md border border-primary/30 px-3 py-1 text-sm hover:bg-primary/10"
+    >
+      <Icon className="size-4" />
+    </button>
+  );
+}
+
+export default function SiteLayout({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("min-h-screen flex flex-col", className)}>
+      <BackgroundFluid />
+      <header className="sticky top-0 z-20 backdrop-blur-md bg-background/70 border-b border-primary/10">
+        <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between gap-4">
+          <Link
+            to="/"
+            className="font-extrabold tracking-tight text-lg text-foreground"
+          >
+            Khalid IBNFKIH
+          </Link>
+          <nav className="hidden md:flex gap-4 text-sm text-foreground/80">
+            <a href="#about" className="hover:text-foreground">
+              About
+            </a>
+            <a href="#projects" className="hover:text-foreground">
+              Projects
+            </a>
+            <a href="#progress" className="hover:text-foreground">
+              Process
+            </a>
+            <a href="#gallery" className="hover:text-foreground">
+              Gallery
+            </a>
+            <a href="#skills" className="hover:text-foreground">
+              Skills
+            </a>
+            <a href="#education" className="hover:text-foreground">
+              Education
+            </a>
+            <a href="#contact" className="hover:text-foreground">
+              Contact
+            </a>
+          </nav>
+          <DarkModeToggle />
         </div>
       </header>
-
       <main className="flex-1">{children}</main>
-
-      {/* Floating ambient music player */}
-      <MusicPlayer />
-
-      <footer className="mt-20">
-        <div className="mx-auto max-w-6xl px-4 pb-10">
-          <div className="card-glass p-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-foreground/70">
-                © {new Date().getFullYear()} Khalid IBNFKIH — Made with ❤️
-              </p>
-              <div className="flex items-center gap-4 text-sm">
-                <a className="hover:text-primary" href="/#projects">
-                  Projects
-                </a>
-                <a
-                  className="hover:text-primary"
-                  href="mailto:khalidibnfkih@gmail.com"
-                >
-                  Email
-                </a>
-                <a className="hover:text-primary" href="/#about">
-                  Top
-                </a>
-              </div>
-            </div>
-          </div>
+      <footer className="mt-16 border-t border-primary/10">
+        <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-foreground/60">
+          © {new Date().getFullYear()} Khalid IBNFKIH. All rights reserved.
         </div>
       </footer>
     </div>
