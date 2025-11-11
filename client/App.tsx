@@ -22,7 +22,7 @@ const App = () => (
       <Sonner />
       <ThemeProvider>
         {/* Use basename so GitHub Pages subdirectory /MyPortfolio/ works correctly */}
-        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <SiteLayout>
             <Routes>
               <Route path="/" element={<Index />} />

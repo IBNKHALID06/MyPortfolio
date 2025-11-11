@@ -8,16 +8,25 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
-                Hi, I’m Khalid — building at the intersection of AI and cybersecurity
+                Hi, I’m Khalid — building at the intersection of AI and
+                cybersecurity
               </h1>
               <p className="mt-4 text-foreground/80 max-w-3xl">
-                Moroccan developer crafting safe, empowering digital experiences. Here you’ll find a quick overview of my projects, process, and interests.
+                Moroccan developer crafting safe, empowering digital
+                experiences. Here you’ll find a quick overview of my projects,
+                process, and interests.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="#projects" className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-5 py-2 font-semibold hover:scale-[1.03] transition-transform">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-5 py-2 font-semibold hover:scale-[1.03] transition-transform"
+                >
                   See projects
                 </a>
-                <a href="#contact" className="inline-flex items-center rounded-lg border border-primary/30 px-5 py-2 font-semibold hover:bg-primary/10">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center rounded-lg border border-primary/30 px-5 py-2 font-semibold hover:bg-primary/10"
+                >
                   Get in touch
                 </a>
               </div>

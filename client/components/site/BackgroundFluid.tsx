@@ -96,10 +96,7 @@ export default function BackgroundFluid() {
 
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    const verts = new Float32Array([
-      -1, -1,  1, -1, -1,  1,
-      -1,  1,  1, -1,  1,  1,
-    ]);
+    const verts = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
     gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
 
     const loc = gl.getAttribLocation(prog, "a_pos");
