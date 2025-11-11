@@ -1,12 +1,10 @@
-import { PropsWithChildren } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
-export default function SectionTitle({ children }: PropsWithChildren) {
+export default function SectionTitle({ children, className, ...props }: { children: ReactNode } & HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <div className="mb-6">
-      <h2 className="text-2xl md:text-3xl font-extrabold text-glow-purple">
-        {children}
-      </h2>
-      <div className="mt-2 h-px w-24 bg-gradient-to-r from-violet-500/70 to-transparent" />
-    </div>
+    <h2 className={cn("text-2xl md:text-3xl font-bold tracking-tight text-foreground", className)} {...props}>
+      {children}
+    </h2>
   );
 }
