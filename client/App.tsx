@@ -37,7 +37,9 @@ const App = () => (
 );
 
 declare global {
-  interface Window { __APP_ROOT__?: Root }
+  interface Window {
+    __APP_ROOT__?: Root;
+  }
 }
 
 const container = document.getElementById("root")!;
