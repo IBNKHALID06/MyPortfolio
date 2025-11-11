@@ -1,12 +1,27 @@
 import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/ui/theme";
+
+function DarkModeToggle() {
+  const { theme, toggle } = useTheme();
+  return (
+    <button
+      aria-label="Toggle dark mode"
+      onClick={toggle}
+      className="inline-flex items-center justify-center rounded-md border border-primary/30 px-3 py-1 text-sm hover:bg-primary/10"
+    >
+      {theme === "dark" ? "☀️" : "🌙"}
+    </button>
+  );
+}
 
 export default function SiteLayout({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div className={cn("min-h-screen flex flex-col", className)}>
       <header className="sticky top-0 z-20 backdrop-blur-md bg-background/70 border-b border-primary/10">
-        <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between gap-4">
           <Link to="/" className="font-extrabold tracking-tight text-lg text-foreground">Khalid IBNFKIH</Link>
           <nav className="hidden md:flex gap-4 text-sm text-foreground/80">
             <a href="#about" className="hover:text-foreground">About</a>
@@ -17,6 +32,7 @@ export default function SiteLayout({ children, className }: { children: ReactNod
             <a href="#education" className="hover:text-foreground">Education</a>
             <a href="#contact" className="hover:text-foreground">Contact</a>
           </nav>
+          <DarkModeToggle />
         </div>
       </header>
       <main className="flex-1">{children}</main>
