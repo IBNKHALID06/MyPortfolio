@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+// Metaballs ("lava lamp") background with mouse attraction
 export default function BackgroundFluid() {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const raf = useRef<number | null>(null);
@@ -32,48 +33,46 @@ export default function BackgroundFluid() {
       uniform float u_time;
       uniform vec2 u_mouse;
 
-      // hash by IQ
-      float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453123); }
-      float noise(in vec2 p){
-        vec2 i = floor(p); vec2 f = fract(p);
-        float a = hash(i);
-        float b = hash(i + vec2(1.0,0.0));
-        float c = hash(i + vec2(0.0,1.0));
-        float d = hash(i + vec2(1.0,1.0));
-        vec2 u = f*f*(3.0-2.0*f);
-        return mix(a, b, u.x) + (c - a)*u.y*(1.0 - u.x) + (d - b)*u.x*u.y;
+      float metaball(vec2 uv, vec2 c, float r){
+        float d = length(uv - c);
+        return r*r/(d*d + 1e-3);
       }
 
       vec3 palette(float t) {
-        // violet -> fuchsia gradient
         vec3 a = vec3(0.36, 0.27, 0.80);
         vec3 b = vec3(0.90, 0.22, 0.80);
-        vec3 c = vec3(0.30, 0.60, 1.00);
-        return mix(a, b, smoothstep(0.2, 0.8, t)) + 0.08*c;
+        return mix(a, b, smoothstep(0.0, 1.0, t));
       }
 
       void main(){
-        vec2 uv = (gl_FragCoord.xy / u_res.xy);
-        vec2 p = uv * 3.0;
-        float t = u_time * 0.15;
+        vec2 uv = gl_FragCoord.xy / u_res.xy; // 0..1
+        float aspect = u_res.x / u_res.y;
+        vec2 uvA = vec2(uv.x*aspect, uv.y);
 
-        // mouse influence
-        vec2 m = (u_mouse - 0.5) * 2.0;
-        p += m * 0.6;
+        float t = u_time * 0.5;
+        vec2 m = u_mouse; // 0..1
 
-        float n = 0.0;
-        float amp = 0.5;
-        float freq = 1.0;
-        for(int i=0;i<4;i++){
-          n += amp * noise(p * freq + t);
-          freq *= 2.0; amp *= 0.55;
+        float f = 0.0;
+        // 6 moving balls
+        for (int i=0;i<6;i++){
+          float fi = float(i);
+          float a = t*0.6 + fi*1.0472; // ~60deg offset
+          float r = 0.18 + 0.04*sin(t*0.9 + fi);
+          vec2 c = vec2(0.5 + 0.35*cos(a + fi*0.37), 0.5 + 0.30*sin(a*1.2 + fi*0.21));
+          // mouse attraction
+          c += (m - 0.5) * 0.15;
+          vec2 cA = vec2(c.x*aspect, c.y);
+          f += metaball(uvA, cA, r);
         }
-        n = smoothstep(0.2, 0.85, n);
-        vec3 col = palette(n);
 
-        // subtle vignette
-        float vig = smoothstep(0.8, 0.1, length(uv - 0.5));
-        col *= mix(0.8, 1.0, vig);
+        float iso = smoothstep(1.2, 1.6, f);
+        float edge = smoothstep(1.6, 1.8, f) - smoothstep(1.8, 2.0, f);
+        vec3 col = palette(iso) + vec3(edge)*0.25;
+
+        // background gradient + vignette
+        col = mix(vec3(0.06,0.06,0.08), col, iso + 0.35);
+        float vig = smoothstep(0.95, 0.4, length(uv - 0.5));
+        col *= mix(0.85, 1.0, vig);
 
         gl_FragColor = vec4(col, 1.0);
       }
@@ -113,11 +112,16 @@ export default function BackgroundFluid() {
     const uTime = gl.getUniformLocation(prog, "u_time");
     const uMouse = gl.getUniformLocation(prog, "u_mouse");
 
-    const onMove = (e: MouseEvent) => {
-      mouse.current.x = e.clientX / window.innerWidth;
-      mouse.current.y = 1.0 - e.clientY / window.innerHeight;
+    const onMove = (x: number, y: number) => {
+      mouse.current.x = x / window.innerWidth;
+      mouse.current.y = 1.0 - y / window.innerHeight;
     };
-    window.addEventListener("mousemove", onMove);
+    const onMouse = (e: MouseEvent) => onMove(e.clientX, e.clientY);
+    const onTouch = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+    };
+    window.addEventListener("mousemove", onMouse);
+    window.addEventListener("touchmove", onTouch, { passive: true });
 
     let start = performance.now();
     const tick = () => {
@@ -136,14 +140,15 @@ export default function BackgroundFluid() {
     return () => {
       if (raf.current) cancelAnimationFrame(raf.current);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mousemove", onMouse);
+      window.removeEventListener("touchmove", onTouch);
     };
   }, []);
 
   return (
     <canvas
       ref={ref}
-      className="fixed inset-0 -z-10 w-full h-full opacity-70"
+      className="fixed inset-0 -z-10 w-full h-full"
       aria-hidden="true"
     />
   );
