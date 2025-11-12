@@ -35,7 +35,9 @@ public/        # Static assets
 
 ## 🚀 Local Development
 1. Install PNPM if not installed: https://pnpm.io/installation
-2. Install dependencies:
+---
+
+Deployment: GitHub Pages via Actions — last triggered: 2025-11-12
    ```bash
    pnpm install
    ```
