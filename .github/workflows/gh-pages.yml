@@ -39,6 +39,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build static site
+        env:
+          CUSTOM_DOMAIN: khalidibnfkih.dev
+          BASE_PATH: /
         run: pnpm build:client
 
       - name: Upload artifact
