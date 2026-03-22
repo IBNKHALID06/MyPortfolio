@@ -1,0 +1,167 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects HSL values in CSS vars
+   */
+  :root {
+    /* Light theme */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+
+    --primary: 262 83% 58%; /* violet */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 95%;
+    --secondary-foreground: 240 10% 4%;
+
+    --muted: 240 4% 95%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 289 84% 60%; /* fuchsia accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 262 83% 58% / 18%;
+    --input: 240 5.9% 90%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 4%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 95%;
+    --sidebar-accent-foreground: 240 10% 4%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 262 83% 58%;
+    /* transition tokens — used to smooth theme changes */
+    --theme-transition-duration: 250ms;
+    --theme-transition-timing: cubic-bezier(.4,0,.2,1);
+  }
+
+  .dark {
+    /* Dark theme */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 7% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 7% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 6% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 6% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 289 84% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 262 83% 58% / 18%;
+    --input: 240 6% 18%;
+    --ring: 262 83% 58%;
+
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 6% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 240 6% 18%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+/*
+  Smooth theme transitions:
+  - Apply transitions to the body and commonly-changing UI elements that rely on CSS vars.
+  - Provide a utility class to temporarily disable transitions (used on first load to avoid flashes).
+*/
+:root,
+html,
+body {
+  /* allow user-agent to pick correct color-scheme where appropriate */
+  color-scheme: light dark;
+}
+
+.disable-theme-transitions *,
+.disable-theme-transitions *::before,
+.disable-theme-transitions *::after {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Smoothly animate properties that change with theme */
+body,
+.card-glass,
+.blob,
+.ring-glow-purple,
+.navbar,
+.sidebar {
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+              color var(--theme-transition-duration) var(--theme-transition-timing),
+              border-color var(--theme-transition-duration) var(--theme-transition-timing),
+              box-shadow var(--theme-transition-duration) var(--theme-transition-timing),
+              fill var(--theme-transition-duration) var(--theme-transition-timing),
+              stroke var(--theme-transition-duration) var(--theme-transition-timing);
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+}
+
+/* Custom utilities for the brand look */
+@layer utilities {
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.75), 0 0 24px rgba(217, 70, 239, 0.35);
+  }
+  .card-glass {
+    @apply backdrop-blur-md border border-primary/20 rounded-2xl shadow-[0_0_0_1px_hsl(var(--ring)/0.15)] bg-white/80 dark:bg-black/40;
+  }
+  .ring-glow-purple { box-shadow: 0 0 0 2px hsl(var(--ring) / 0.35), 0 0 40px 0 hsl(var(--ring) / 0.25); }
+  .range-mustang { appearance: none; -webkit-appearance: none; height: 8px; background: hsl(var(--foreground)/0.12); border-radius: 9999px; vertical-align: middle; }
+  .range-mustang::-webkit-slider-runnable-track { height: 8px; background: transparent; border-radius: 9999px; }
+  .range-mustang::-moz-range-track { height: 8px; background: transparent; border-radius: 9999px; }
+  .range-mustang::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; margin-top: -8px; border-radius: 9999px; background: url('/mustang-1967.svg') center/90% no-repeat, hsl(var(--primary)); box-shadow: 0 2px 6px rgba(0,0,0,.25); border: 2px solid hsl(var(--background)); }
+  .range-mustang::-moz-range-thumb { width: 24px; height: 24px; border: 2px solid hsl(var(--background)); border-radius: 9999px; background: url('/mustang-1967.svg') center/90% no-repeat, hsl(var(--primary)); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .range-vertical { appearance: none; -webkit-appearance: none; height: 6px; width: 64px; transform: rotate(-90deg); background: transparent; }
+  .range-vertical::-webkit-slider-runnable-track { height: 6px; background: transparent; border-radius: 9999px; }
+  .range-vertical::-moz-range-track { height: 6px; background: transparent; border-radius: 9999px; }
+  .range-vertical::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; background: transparent; border: 0; box-shadow: none; opacity: 0; }
+  .range-vertical::-moz-range-thumb { width: 14px; height: 14px; background: transparent; border: 0; box-shadow: none; opacity: 0; }
+  .range-wave { background: repeating-linear-gradient(90deg, hsl(var(--foreground)/0.12) 0 4px, transparent 4px 6px); }
+}
+
+/* Lava lamp background */
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.1); }
+}
+.blob { animation: blobFloat 12s ease-in-out infinite; }
+.blob-delay { animation-delay: 3s; }
+.blob-delay-2 { animation-delay: 6s; }
