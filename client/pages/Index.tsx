@@ -5,9 +5,6 @@ import {
   Download,
 } from "lucide-react";
 
-import GlassCard from "@/components/site/GlassCard";
-import Hero from "@/components/site/Hero";
-import SectionTitle from "@/components/site/SectionTitle";
 import {
   ResearchIcon,
   ProjectIcon,
@@ -18,6 +15,8 @@ import {
   ExperienceIcon,
   ContactIcon,
 } from "@/components/icons";
+import GlassCard from "@/components/site/GlassCard";
+import Hero from "@/components/site/Hero";
 
 export default function Index() {
   return (

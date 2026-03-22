@@ -1,5 +1,4 @@
 import { Mail, Github, Linkedin } from "lucide-react";
-import GlassCard from "./GlassCard";
 
 export default function Hero() {
   return (

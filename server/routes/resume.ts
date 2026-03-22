@@ -1,5 +1,6 @@
-import { RequestHandler } from "express";
 import path from "path";
+
+import { RequestHandler } from "express";
 
 export const handleGetResume: RequestHandler = (req, res) => {
   // Path to resume PDF in public folder

@@ -43,6 +43,20 @@ export default [
     },
   },
   {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-undef': 'off',
+    },
+  },
+  {
     ignores: [
       'dist',
       'node_modules',
@@ -52,7 +66,8 @@ export default [
       'pnpm-lock.yaml',
       '.history',
       '.eslintrc.cjs',
-      '.eslintignore'
+      '.eslintignore',
+      'scripts/**/*.cjs'
     ],
   },
 ];
