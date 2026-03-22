@@ -42,14 +42,14 @@ export default function SiteLayout({
             <a href="#about" className="hover:text-foreground">
               About
             </a>
+            <a href="#research" className="hover:text-foreground">
+              Research
+            </a>
             <a href="#projects" className="hover:text-foreground">
               Projects
             </a>
-            <a href="#progress" className="hover:text-foreground">
-              Process
-            </a>
-            <a href="#gallery" className="hover:text-foreground">
-              Gallery
+            <a href="#professional" className="hover:text-foreground">
+              Experience
             </a>
             <a href="#skills" className="hover:text-foreground">
               Skills

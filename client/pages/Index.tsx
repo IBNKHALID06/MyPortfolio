@@ -26,414 +26,258 @@ export default function Index() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GlassCard className="p-6 text-foreground/90">
             <p>
-              I’m a Moroccan developer passionate about combining artificial
-              intelligence and cybersecurity to create meaningful, safe, and
-              empowering digital experiences.
+              I'm a Computer Science student at FSAC building privacy-focused
+              software and experimenting with AI security systems. I'm passionate
+              about the intersection of artificial intelligence and cybersecurity,
+              developing applications that protect user privacy while advancing
+              technological innovation.
             </p>
             <p className="mt-3">
-              During my gap year, I built two projects —{" "}
+              My work spans research on defenses against generative manipulation,
+              secure development environments, and privacy-first applications.
+              I've built several projects including{" "}
               <span className="text-primary font-semibold">Consoly</span>, an
-              anonymous emotional-expression app designed to help people share
-              their feelings without fear of judgment, and{" "}
+              anonymous emotional-expression platform,{" "}
               <span className="text-primary font-semibold">CodeVail</span>, a
-              Windows desktop app that helps developers practice coding
-              interviews in a secure, focused environment.
+              secure coding interview practice environment, and{" "}
+              <span className="text-primary font-semibold">SlideStage</span>, a
+              privacy-first presentation recorder.
             </p>
             <p className="mt-3">
-              Outside of coding, I enjoy photography, especially capturing skies
-              and everyday beauty through my lens — a passion I share with my
-              late father. I also love learning new languages and exploring how
-              tech can connect people across cultures. I’m also passionate about
-              playing piano and I’m a car enthusiast.
+              I'm also an ALX Term 1 Valedictorian with certifications in
+              cybersecurity from Harvard and Cybrary. Beyond development, I enjoy
+              photography and exploring how technology can create safe,
+              empowering digital experiences.
             </p>
           </GlassCard>
           <GlassCard className="p-6 text-foreground/90">
             <ul className="space-y-2 list-disc list-inside">
               <li>
                 <span className="text-foreground font-semibold">Focus:</span>{" "}
-                AI, Cybersecurity, Cloud Computing
+                Cybersecurity, Machine Learning, AI Systems
               </li>
               <li>
-                <span className="text-foreground font-semibold">Tools:</span>{" "}
-                GitHub, Linux, Framer, Figma
+                <span className="text-foreground font-semibold">Languages:</span>{" "}
+                Python, JavaScript, C, HTML, CSS
+              </li>
+              <li>
+                <span className="text-foreground font-semibold">Tools &
+                  Systems:
+                </span>{" "}
+                Linux, Git, GitHub
               </li>
               <li>
                 <span className="text-foreground font-semibold">
-                  Programming:
+                  Natural Languages:
                 </span>{" "}
-                Python, HTML, CSS, JavaScript
-              </li>
-              <li>
-                <span className="text-foreground font-semibold">
-                  Soft Skills:
-                </span>{" "}
-                Leadership, Communication, Critical Thinking, Public Speaking
-              </li>
-              <li>
-                <span className="text-foreground font-semibold">
-                  Languages:
-                </span>{" "}
-                Native: Darija · Fluent: Arabic · Advanced: English, French
+                Native: Darija · Fluent: Arabic · Professional: English, French
               </li>
             </ul>
           </GlassCard>
         </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Projects Summary</SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <GlassCard className="p-6 text-foreground/90">
-            <h3 className="text-foreground font-semibold text-lg">Consoly</h3>
-            <p className="mt-1 text-sm">Type: Web App</p>
-            <p className="mt-2">
-              Goal: Provide a safe, anonymous space for people to express
-              emotions without fear or guilt.
-            </p>
-            <p className="mt-2">
-              Highlights: Built with Python and Flask; focuses on mental health
-              and community well-being.
-            </p>
-            <p className="mt-2">
-              Role: Full-stack developer, UI designer, and founder.
-            </p>
-            <p className="mt-2">
-              Result: Functional prototype with smooth user flow and anonymous
-              posting system.
-            </p>
-          </GlassCard>
-          <GlassCard className="p-6 text-foreground/90">
-            <h3 className="text-foreground font-semibold text-lg">CodeVail</h3>
-            <p className="mt-1 text-sm">Type: Desktop App</p>
-            <p className="mt-2">
-              Goal: Help developers practice coding interviews in a controlled
-              environment.
-            </p>
-            <p className="mt-2">
-              Highlights: Built with Python; features in-app coding interface
-              and system monitoring.
-            </p>
-            <p className="mt-2">Role: Developer and designer.</p>
-            <p className="mt-2">
-              Result: Fully functional Windows app ready for download and use.
-            </p>
-          </GlassCard>
-          <GlassCard className="p-6 text-foreground/90">
-            <h3 className="text-foreground font-semibold text-lg">
-              Aquanour (Concept)
-            </h3>
-            <p className="mt-1 text-sm">Type: Sustainability Concept</p>
-            <p className="mt-2">
-              Goal: Innovate water access for rural communities.
-            </p>
-            <p className="mt-2">
-              Context: Part of an entrepreneurship course milestone.
-            </p>
-          </GlassCard>
-        </div>
-      </section>
-
-      {/* Rural Girls Education (Problem + Solution) */}
-      <section id="rural-girls" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Empowering Rural Girls in Morocco</SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <GlassCard className="p-6 text-foreground/90">
-            <p className="leading-relaxed">
-              Many girls in rural Morocco face challenges accessing quality
-              education due to distance, limited resources, and cultural
-              barriers. The{" "}
-              <span className="text-primary font-semibold">
-                Rural Girl Plan
-              </span>{" "}
-              provides digital learning tools, mentorship, and educational
-              resources to help girls continue their studies and thrive.
-              <span className="block mt-3 text-sm text-foreground/70">
-                Implemented with a focus on local communities in Morocco.
-              </span>
-            </p>
-            <ul className="mt-4 space-y-2 list-disc list-inside">
-              <li>Offline-first digital lessons available on shared devices</li>
-              <li>Community mentorship circles led by university students</li>
-              <li>Scholarship and learning material micro-funds</li>
-            </ul>
-          </GlassCard>
-          <GlassCard className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <Laptop className="mx-auto size-5 text-primary" />
-                <p className="mt-2 text-sm font-medium">Digital Learning</p>
-              </div>
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <Users className="mx-auto size-5 text-primary" />
-                <p className="mt-2 text-sm font-medium">Mentorship</p>
-              </div>
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <Book className="mx-auto size-5 text-primary" />
-                <p className="mt-2 text-sm font-medium">Resources</p>
-              </div>
-            </div>
-            <div className="mt-4 text-xs text-foreground/70">
-              Barriers → Solutions: distance (community hubs), resources (shared
-              devices), guidance (mentorship).
-            </div>
-          </GlassCard>
-        </div>
-      </section>
-
-      {/* Progress / Prototype / Timeline */}
-      <section id="progress" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>From Idea to Reality</SectionTitle>
-        <GlassCard className="p-6">
-          <p className="text-foreground/90">
-            All my projects follow an iterative process to stay effective and
-            scalable:
-          </p>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-secondary">
-              <Layers className="size-5 text-primary" />
-              <p className="mt-2 text-sm font-semibold">Concept → Prototype</p>
-              <p className="text-sm text-foreground/80 mt-1">
-                Sketches, wireframes, and early builds.
-              </p>
-            </div>
-            <div className="p-4 rounded-xl bg-secondary">
-              <LineChart className="size-5 text-primary" />
-              <p className="mt-2 text-sm font-semibold">
-                Feedback → Refinement
-              </p>
-              <p className="text-sm text-foreground/80 mt-1">
-                User testing, iteration, and polish.
-              </p>
-            </div>
-            <div className="p-4 rounded-xl bg-secondary">
-              <Calendar className="size-5 text-primary" />
-              <p className="mt-2 text-sm font-semibold">
-                Evaluation → Learnings
-              </p>
-              <p className="text-sm text-foreground/80 mt-1">
-                Measure outcomes and plan next steps.
-              </p>
-            </div>
-          </div>
-          <div className="mt-6">
-            <ol className="relative border-s border-foreground/15 ms-3">
-              <li className="mb-6 ms-4">
-                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
-                <p className="text-sm">
-                  <span className="font-semibold">Consoly</span> — MVP validated
-                  with early users.
-                </p>
-              </li>
-              <li className="mb-6 ms-4">
-                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
-                <p className="text-sm">
-                  <span className="font-semibold">Aquanour</span> — Pilot with
-                  live map and reporting.
-                </p>
-              </li>
-              <li className="ms-4">
-                <div className="absolute w-2 h-2 bg-primary rounded-full -start-1 top-2" />
-                <p className="text-sm">
-                  <span className="font-semibold">Rural Girl Plan</span> — Beta
-                  focused on rural communities in Morocco.
-                </p>
-              </li>
-            </ol>
-          </div>
+      <section id="research" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Research</SectionTitle>
+        <GlassCard className="p-6 text-foreground/90">
+          <h3 className="text-foreground font-semibold text-lg">
+            PixelVeil — Image Defense Against Generative Manipulation
+          </h3>
+          <p className="mt-1 text-sm text-primary">Dec 2025 – Feb 2026 · Independent Research</p>
+          <ul className="mt-4 space-y-2 list-disc list-inside">
+            <li>
+              Conducted a multi-layer experimental study on image-only defenses
+              against generative AI manipulation.
+            </li>
+            <li>
+              Evaluated techniques including color-space perturbations, geometric
+              distortions, texture noise, and adversarial Vision Transformer
+              attacks.
+            </li>
+            <li>
+              Demonstrated limitations of image-only protection against multimodal
+              generative models.
+            </li>
+            <li>
+              Proposed future work exploring capture-time defenses using secure
+              camera architectures.
+            </li>
+          </ul>
         </GlassCard>
       </section>
 
-      {/* Gallery Slideshow (Aquanour screenshots) */}
-      <section id="gallery" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Project Gallery</SectionTitle>
-        <GlassCard className="p-4">
-          <Slideshow
-            slides={[
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F6e749d0c3e2744bcbf193891b7f9b644?format=webp&width=800",
-                alt: "Aquanour live map",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fbbc33fd6a13f4bf9891b7547060585e7?format=webp&width=800",
-                alt: "Aquanour reports table",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fcab394107a034e19a51a0c629a020650?format=webp&width=800",
-                alt: "Aquanour analytics dashboard",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F67bcfb43f30a425387b18079c5e94402?format=webp&width=800",
-                alt: "Aquanour contact page",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F44b925dfb0654adfac9537c0bd20827c?format=webp&width=800",
-                alt: "Aquanour mobile preview",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fe1fdce0ac52d4f4387ac3b330ff37f5a?format=webp&width=800",
-                alt: "Aquanour SMS webhook",
-              },
-              {
-                src: "https://cdn.builder.io/api/v1/image/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F32ce41fc3f494b03a1c9ee9d3788c3b2?format=webp&width=800",
-                alt: "Aquanour home page",
-              },
-            ]}
-          />
+      <section id="projects" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Technical Projects</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <GlassCard className="p-6 text-foreground/90">
+            <h3 className="text-foreground font-semibold text-lg">CodeVail</h3>
+            <p className="mt-1 text-sm text-primary">Aug 2025 – Oct 2025</p>
+            <p className="mt-2 text-sm font-semibold">Secure Coding Interview Practice Environment</p>
+            <ul className="mt-3 space-y-2 list-disc list-inside text-sm">
+              <li>
+                Developed a Python desktop application for solving coding interview
+                problems in a controlled environment.
+              </li>
+              <li>
+                Implemented system process monitoring to detect external assistance
+                tools during coding sessions.
+              </li>
+              <li>
+                Integrated a code execution environment enabling real-time evaluation
+                of solutions.
+              </li>
+              <li>
+                Designed a modular interface using HTML/CSS integrated with
+                Python-based UI components.
+              </li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard className="p-6 text-foreground/90">
+            <h3 className="text-foreground font-semibold text-lg">SlideStage</h3>
+            <p className="mt-1 text-sm text-primary">2025 · Open Source Project</p>
+            <p className="mt-2 text-sm font-semibold">Privacy-First Slide Presentation Recorder</p>
+            <ul className="mt-3 space-y-2 list-disc list-inside text-sm">
+              <li>
+                Built a browser-based presentation recording tool capturing slides,
+                webcam video, and live subtitles.
+              </li>
+              <li>
+                Implemented client-side recording and rendering using JavaScript
+                browser APIs.
+              </li>
+              <li>
+                Designed to run entirely client-side, ensuring privacy without cloud
+                storage or login requirements.
+              </li>
+              <li>
+                Developed as a lightweight open-source alternative to presentation
+                recording platforms.
+              </li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard className="p-6 text-foreground/90">
+            <h3 className="text-foreground font-semibold text-lg">Aquanour</h3>
+            <p className="mt-1 text-sm text-primary">Mar 2025 – Jun 2025</p>
+            <p className="mt-2 text-sm font-semibold">Smart Water Monitoring & Reporting System</p>
+            <ul className="mt-3 space-y-2 list-disc list-inside text-sm">
+              <li>
+                Designed a system enabling communities to report water leaks and
+                infrastructure issues.
+              </li>
+              <li>
+                Proposed a low-cost technological approach supporting sustainable
+                water management.
+              </li>
+              <li>
+                Presented within the ENT100 entrepreneurship program.
+              </li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard className="p-6 text-foreground/90">
+            <h3 className="text-foreground font-semibold text-lg">Consoly</h3>
+            <p className="mt-1 text-sm text-primary">Nov 2024 – Feb 2025</p>
+            <p className="mt-2 text-sm font-semibold">Anonymous Emotional Support Platform</p>
+            <ul className="mt-3 space-y-2 list-disc list-inside text-sm">
+              <li>
+                Developed a platform allowing users to share emotions anonymously
+                without fear of judgment.
+              </li>
+              <li>
+                Designed privacy-focused messaging and authentication flows.
+              </li>
+              <li>
+                Focused on secure anonymous communication for sensitive discussions.
+              </li>
+            </ul>
+          </GlassCard>
+        </div>
+      </section>
+
+      <section id="professional" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Professional Experience</SectionTitle>
+        <GlassCard className="p-6 text-foreground/90">
+          <h3 className="text-foreground font-semibold text-lg">
+            Expertise Auto Service
+          </h3>
+          <p className="mt-1 text-sm text-primary">
+            IT & Insurance Operations Assistant · Jul 2025 – Sep 2025
+          </p>
+          <p className="text-sm text-foreground/70 mt-1">Casablanca, Morocco</p>
+          <ul className="mt-4 space-y-2 list-disc list-inside">
+            <li>Provided IT assistance and technical troubleshooting for internal systems.</li>
+            <li>
+              Managed client–insurance clearance procedures related to windshield
+              replacement services.
+            </li>
+            <li>
+              Processed insurance documentation and claim forms required for
+              coverage approval.
+            </li>
+            <li>
+              Coordinated between clients, the company, and insurance providers to
+              ensure smooth claim processing.
+            </li>
+          </ul>
         </GlassCard>
       </section>
 
       <section id="skills" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Skills</SectionTitle>
+        <SectionTitle>Technical Skills</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-foreground/90">
           <GlassCard className="p-6">
-            <h4 className="text-foreground font-semibold">Programming</h4>
+            <h4 className="text-foreground font-semibold">Programming Languages</h4>
             <ul className="mt-2 list-disc list-inside space-y-1">
               <li>Python</li>
+              <li>JavaScript</li>
+              <li>C</li>
               <li>HTML</li>
               <li>CSS</li>
-              <li>JavaScript</li>
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h4 className="text-foreground font-semibold">Tools</h4>
+            <h4 className="text-foreground font-semibold">Tools & Systems</h4>
             <ul className="mt-2 list-disc list-inside space-y-1">
-              <li>GitHub</li>
               <li>Linux</li>
-              <li>Framer</li>
+              <li>Git</li>
+              <li>GitHub</li>
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h4 className="text-foreground font-semibold">Focus Areas</h4>
+            <h4 className="text-foreground font-semibold">Domains</h4>
             <ul className="mt-2 list-disc list-inside space-y-1">
-              <li>AI</li>
               <li>Cybersecurity</li>
-              <li>Cloud Computing</li>
-            </ul>
-          </GlassCard>
-          <GlassCard className="p-6">
-            <h4 className="text-foreground font-semibold">Soft Skills</h4>
-            <ul className="mt-2 list-disc list-inside space-y-1">
-              <li>Leadership</li>
-              <li>Communication</li>
-              <li>Critical Thinking</li>
-              <li>Public Speaking</li>
-            </ul>
-          </GlassCard>
-          <GlassCard className="p-6">
-            <h4 className="text-foreground font-semibold">Languages</h4>
-            <ul className="mt-2 list-disc list-inside space-y-1">
-              <li>Native: Darija</li>
-              <li>Fluent: Arabic</li>
-              <li>Advanced: English, French</li>
+              <li>Machine Learning</li>
+              <li>AI Systems</li>
             </ul>
           </GlassCard>
         </div>
       </section>
 
-      <section id="achievements" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Achievements</SectionTitle>
+      <section id="certifications" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Certifications</SectionTitle>
         <GlassCard className="p-6 text-foreground/90">
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M8 21h8l-4-9-4 9z" />
-                <path d="M7 7h10" />
-                <path d="M12 3v4" />
-              </svg>
+              <span className="text-primary font-semibold min-w-fit mt-1">✓</span>
               <span>
-                Developed Consoly – A mental health web app merging empathy and
-                anonymity.
+                <span className="font-semibold">CS50 Introduction to Cybersecurity</span>
+                {" "}— Harvard University (2024)
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <rect x="3" y="4" width="18" height="14" rx="2" />
-                <path d="M8 21h8" />
-              </svg>
+              <span className="text-primary font-semibold min-w-fit mt-1">✓</span>
               <span>
-                Built CodeVail – A Windows app for coding interview prep.
+                <span className="font-semibold">Cybrary Cybersecurity Fundamentals</span>
+                {" "}(2024)
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 14v7" />
-                <rect x="5" y="3" width="14" height="10" rx="2" />
-              </svg>
+              <span className="text-primary font-semibold min-w-fit mt-1">✓</span>
               <span>
-                Top 1% National Public Speaking Contest – Spoke on COVID-19’s
-                social impact.
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-              <span>
-                CS50 Cybersecurity & Cybrary Certifications – Strengthened
-                technical foundation.
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8" />
-                <path d="M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
-              </svg>
-              <span>
-                Photography Hobbyist – Passionate about capturing everyday
-                beauty.
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 mt-1 text-primary"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M18 8a6 6 0 00-9 5.197" />
-                <path d="M21 12a9 9 0 01-15 6" />
-              </svg>
-              <span>
-                Community Volunteer – Led Ramadan charity drive for the
-                homeless.
+                <span className="font-semibold">ALX Pathway Certification</span>
               </span>
             </li>
           </ul>
@@ -442,39 +286,71 @@ export default function Index() {
 
       <section id="education" className="mx-auto max-w-6xl px-4 mt-16">
         <SectionTitle>Education</SectionTitle>
-        <GlassCard className="p-6 text-foreground/90">
-          <p className="text-foreground font-semibold">
-            Faculty of Science Ain Chock / Computer Science Major
-          </p>
-          <p className="mt-1">Currently studying</p>
-        </GlassCard>
-        <div className="h-4" />
-        <GlassCard className="p-6 text-foreground/90">
-          <p className="text-foreground font-semibold">
-            Jaber Bnou Hayan High School — Casablanca, Morocco
-          </p>
-          <p className="mt-1">GPA: 3.7 / 4.0 (≈ 15/20 on Moroccan scale)</p>
-          <p className="mt-1">Public Curriculum (No AP/IB Courses)</p>
-        </GlassCard>
+        <div className="space-y-4">
+          <GlassCard className="p-6 text-foreground/90">
+            <p className="text-foreground font-semibold">
+              Faculté des Sciences Aïn Chock (FSAC) — University Hassan II
+            </p>
+            <p className="mt-1 text-sm text-primary">Bachelor's in Applied Computer Science</p>
+            <p className="mt-1 text-sm">Sep 2025 – Present</p>
+            <p className="mt-3 text-sm">
+              <span className="font-semibold">Coursework:</span> Algorithms, Python &
+              C Programming, Digital Electronics, Computer Architecture, Web
+              Development, Signal Processing.
+            </p>
+          </GlassCard>
+          <GlassCard className="p-6 text-foreground/90">
+            <p className="text-foreground font-semibold">
+              Jaber Bnou Hayan High School
+            </p>
+            <p className="mt-1 text-sm text-primary">Baccalaureate in Science</p>
+            <p className="mt-1 text-sm">2024 · Casablanca, Morocco</p>
+          </GlassCard>
+        </div>
       </section>
 
-      <section id="resume" className="mx-auto max-w-6xl px-4 mt-16">
-        <SectionTitle>Resume</SectionTitle>
+      <section id="achievements" className="mx-auto max-w-6xl px-4 mt-16">
+        <SectionTitle>Achievements</SectionTitle>
         <GlassCard className="p-6 text-foreground/90">
-          <p>
-            If you’d like a copy of my resume, you can request it by email. I’ll
-            reply with the latest PDF.
-          </p>
-          <div className="mt-4">
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=khalidibnfkih@gmail.com&su=Resume%20Request&body=Hi%20Khalid%2C%20please%20share%20your%20latest%20resume."
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-5 py-2 font-semibold hover:scale-[1.03] transition-transform"
-            >
-              Request Resume by Email
-            </a>
-          </div>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">⭐</span>
+              <span>ALX Term 1 Valedictorian</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">🔒</span>
+              <span>
+                Conducted advanced research on image defenses against generative AI
+                manipulation (PixelVeil)
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">🛡️</span>
+              <span>
+                Built CodeVail — A secure coding interview practice environment with
+                system monitoring
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">💬</span>
+              <span>
+                Developed Consoly — An anonymous emotional support platform
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">🎯</span>
+              <span>
+                Founded SlideStage — Privacy-first open-source presentation recorder
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-semibold min-w-fit">💧</span>
+              <span>
+                Designed Aquanour — Smart water monitoring system for sustainable
+                water management
+              </span>
+            </li>
+          </ul>
         </GlassCard>
       </section>
 
@@ -512,12 +388,6 @@ export default function Index() {
                   <Youtube className="size-4" /> YouTube
                 </a>
                 <a
-                  href="https://tiktok.com/@khalidposts"
-                  className="inline-flex items-center gap-2 rounded-lg border border-primary/30 px-3 py-2 hover:bg-primary/10"
-                >
-                  TikTok
-                </a>
-                <a
                   href="mailto:khalidibnfkih@gmail.com"
                   className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-3 py-2 font-semibold hover:scale-[1.03] transition-transform"
                 >
@@ -527,8 +397,8 @@ export default function Index() {
             </div>
             <div>
               <p>
-                Open to collaborations, internships, and freelance projects at
-                the intersection of AI and cybersecurity.
+                Open to collaborations, internships, and freelance projects at the
+                intersection of AI and cybersecurity.
               </p>
             </div>
           </div>
