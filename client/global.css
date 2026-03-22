@@ -95,7 +95,15 @@
 
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground font-sans antialiased; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
 }
 
 /* Custom utilities for the brand look */
@@ -107,6 +115,28 @@
     @apply backdrop-blur-md border border-primary/20 rounded-2xl shadow-[0_0_0_1px_hsl(var(--ring)/0.15)] bg-white/80 dark:bg-black/40;
   }
   .ring-glow-purple { box-shadow: 0 0 0 2px hsl(var(--ring) / 0.35), 0 0 40px 0 hsl(var(--ring) / 0.25); }
+
+  /* Apple-style utilities */
+  .apple-card {
+    @apply rounded-2xl border border-primary/20 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .apple-section {
+    @apply scroll-mt-20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .smooth-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .interactive-button {
+    @apply font-semibold rounded-lg smooth-transition active:scale-95;
+  }
+
   .range-mustang { appearance: none; -webkit-appearance: none; height: 8px; background: hsl(var(--foreground)/0.12); border-radius: 9999px; vertical-align: middle; }
   .range-mustang::-webkit-slider-runnable-track { height: 8px; background: transparent; border-radius: 9999px; }
   .range-mustang::-moz-range-track { height: 8px; background: transparent; border-radius: 9999px; }

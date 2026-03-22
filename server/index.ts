@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 
 import { handleDemo } from "./routes/demo";
+import { handleGetResume } from "./routes/resume";
 
 export function createServer() {
   const app = express();
@@ -19,6 +20,7 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  app.get("/api/resume", handleGetResume);
 
   return app;
 }
