@@ -44,9 +44,9 @@ const trackData: Array<Omit<Track, 'src'>> = [
 
 // Build track URL with API key from environment
 const buildTrackUrl = (assetId: string, accessToken: string): string => {
-  const apiKey = import.meta.env.VITE_BUILDER_MUSIC_API_KEY;
+  const apiKey = import.meta.env.VITE_PUBLIC_BUILDER_MUSIC_API_KEY;
   if (!apiKey) {
-    console.warn('VITE_BUILDER_MUSIC_API_KEY environment variable is not set');
+    console.warn('VITE_PUBLIC_BUILDER_MUSIC_API_KEY environment variable is not set');
     return '';
   }
   return `https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F${assetId}?alt=media&token=${accessToken}&apiKey=${apiKey}`;
