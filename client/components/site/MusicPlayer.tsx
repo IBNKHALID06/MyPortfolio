@@ -1,4 +1,4 @@
-import { Play, Pause, Volume2, Music, SkipForward, Minus, Plus } from "lucide-react";
+import { Play, Pause, Volume2, Music, SkipForward } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 type Track = { src: string; name: string };
