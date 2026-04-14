@@ -134,7 +134,7 @@ export default function MusicPlayer() {
                   <div className="absolute bottom-12 right-0 backdrop-blur-md bg-background/90 border border-primary/20 rounded-xl shadow-2xl p-3" onMouseLeave={() => setShowVol(false)}>
                     <div className="flex flex-col items-center gap-3 w-8">
                       <input
-                        className="w-1 h-20 bg-foreground/10 rounded-full appearance-none cursor-pointer accent-primary [writing-mode:bt-lr]"
+                        className="w-1 h-20 bg-foreground/10 rounded-full appearance-none cursor-pointer accent-primary"
                         aria-label="Volume"
                         type="range"
                         min={0}
@@ -142,7 +142,7 @@ export default function MusicPlayer() {
                         step={0.01}
                         value={volume}
                         onChange={(e) => setVolume(Number(e.target.value))}
-                        style={{ writingMode: "bt-lr" }}
+                        style={{ writingMode: "vertical-rl", WebkitAppearance: "slider-vertical" as any }}
                       />
                       <div className="text-xs text-foreground/70 font-medium">{Math.round(volume * 100)}%</div>
                     </div>
