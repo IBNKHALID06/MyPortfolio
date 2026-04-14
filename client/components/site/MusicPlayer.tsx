@@ -1,38 +1,61 @@
 import { Play, Pause, Volume2, Music, SkipForward, Minus, Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-type Track = { src: string; name: string };
+type Track = { src: string; name: string; assetId: string; accessToken: string };
 
-const defaultTracks: Track[] = [
+// Track data with asset IDs and tokens (no API keys)
+const trackData: Array<Omit<Track, 'src'>> = [
   {
     name: "Nothing's Gonna Hurt You Baby - Cigarettes After Sex",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F8057928c7744410baca42faf050fa434?alt=media&token=a102540e-d125-4993-bdb5-2cda7cd404f4&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "8057928c7744410baca42faf050fa434",
+    accessToken: "a102540e-d125-4993-bdb5-2cda7cd404f4",
   },
   {
     name: "Kilgore Doubtfire - Escape",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fb02360fc85de40478f3f4da4bb40a8a6?alt=media&token=d301e4e1-e082-42a2-a03d-0089eb9352d3&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "b02360fc85de40478f3f4da4bb40a8a6",
+    accessToken: "d301e4e1-e082-42a2-a03d-0089eb9352d3",
   },
   {
     name: "Hannah Williams & The Affirmations - Late Nights & Heartbreak",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F86017ef8dbfa4cfc88b146e96429c7f4?alt=media&token=12074282-b199-4149-964a-d42615355826&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "86017ef8dbfa4cfc88b146e96429c7f4",
+    accessToken: "12074282-b199-4149-964a-d42615355826",
   },
   {
     name: "¿Porqué te vas - Jeanette",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fbd742a3fd1f141d281cb59b01696a8ef?alt=media&token=620242c9-2b23-48b4-b0ae-957526c3e45a&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "bd742a3fd1f141d281cb59b01696a8ef",
+    accessToken: "620242c9-2b23-48b4-b0ae-957526c3e45a",
   },
   {
     name: "Xcho - Ты и Я",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fc43db634fa7a43d4b620f3eb96b326ea?alt=media&token=ef8368ab-5618-4db9-89eb-ceec91b3d10e&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "c43db634fa7a43d4b620f3eb96b326ea",
+    accessToken: "ef8368ab-5618-4db9-89eb-ceec91b3d10e",
   },
   {
     name: "TOO CLOSE TO ME (slowed)",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Ffd09ea06564d4be897e792d6c3631aab?alt=media&token=2aa82af4-7460-4dfb-bdaa-ab712ecbf479&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "fd09ea06564d4be897e792d6c3631aab",
+    accessToken: "2aa82af4-7460-4dfb-bdaa-ab712ecbf479",
   },
   {
     name: "Stuck Next To You - Tiishe [Slowed]",
-    src: "https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2Fe9eeb68e0af84daf9c95de8ddcc8ebde?alt=media&token=402824a7-7fb9-4594-b539-f67f9e1841c7&apiKey=c204d5ef3ac44e349ef5b320a536efad",
+    assetId: "e9eeb68e0af84daf9c95de8ddcc8ebde",
+    accessToken: "402824a7-7fb9-4594-b539-f67f9e1841c7",
   },
 ];
+
+// Build track URL with API key from environment
+const buildTrackUrl = (assetId: string, accessToken: string): string => {
+  const apiKey = import.meta.env.VITE_BUILDER_MUSIC_API_KEY;
+  if (!apiKey) {
+    console.warn('VITE_BUILDER_MUSIC_API_KEY environment variable is not set');
+    return '';
+  }
+  return `https://cdn.builder.io/o/assets%2Fc204d5ef3ac44e349ef5b320a536efad%2F${assetId}?alt=media&token=${accessToken}&apiKey=${apiKey}`;
+};
+
+const defaultTracks: Track[] = trackData.map(track => ({
+  ...track,
+  src: buildTrackUrl(track.assetId, track.accessToken),
+}));
 
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
