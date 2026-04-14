@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import BackgroundFluid from "@/components/site/BackgroundFluid";
+import MusicPlayer from "@/components/site/MusicPlayer";
 import { useTheme } from "@/components/ui/theme";
 import { cn } from "@/lib/utils";
 
@@ -65,6 +66,7 @@ export default function SiteLayout({
         </div>
       </header>
       <main className="flex-1">{children}</main>
+      <MusicPlayer />
       <footer className="mt-16 border-t border-primary/10">
         <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-foreground/60">
           © {new Date().getFullYear()} Khalid IBNFKIH. All rights reserved.
